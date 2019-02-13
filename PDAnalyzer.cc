@@ -23,7 +23,9 @@
 
 using namespace std;
 
-//pdTreeAnalyze /lustre/cmswork/abragagn/ntuList/MC2016Lists/BsToJpsiPhi_BMuonFilter_AOD_DCAP.list hist.root -v histoMode RECREATE -v use_gen t -n 10000
+/*
+pdTreeAnalyze /lustre/cmswork/abragagn/ntuList/MC2017Lists/BsToJpsiPhi_2017_DCAP.list hist.root -v outputFile ntu.root -v histoMode RECREATE -v use_gen t -v useHLT t -n 10000
+*/
 
 PDAnalyzer::PDAnalyzer() {
 
@@ -38,14 +40,13 @@ PDAnalyzer::PDAnalyzer() {
     setUserParameter( "useHLT", "false" );
 
     //Jet Parameters
-    setUserParameter( "useJet", "t" ); 
-    setUserParameter( "CutCSV", "0.8484" );
-    setUserParameter( "CutDF", "0.5" );
-    setUserParameter( "kappa", "0.8" );
+    setUserParameter( "CutCSV", "0.8838" ); //loose = 0.5803, medium = 0.8838, tight = 0.9693
+    setUserParameter( "CutDeepCSV", "0.4941" );  //loose = 0.1522, medium = 0.4941, tight = 0.8001
+    setUserParameter( "kappa", "1.0" );
     setUserParameter( "QCut", "0.0" );
-    setUserParameter( "minPtJet", "16" );
+    setUserParameter( "minPtJet", "14" );
     setUserParameter( "jetSeparationCut", "0.4" );
-    setUserParameter( "jetDzCut", "10" );
+    setUserParameter( "jetDzCut", "5" );
 
     setUserParameter( "ptCut", "40.0" ); //needed for paolo's code for unknow reasons
 
@@ -74,7 +75,7 @@ void PDAnalyzer::beginJob() {
     getUserParameter( "minPtJet", minPtJet );
     getUserParameter( "kappa", kappa );
     getUserParameter( "CutCSV", CutCSV );
-    getUserParameter( "CutDF", CutDF );
+    getUserParameter( "CutDeepCSV", CutDeepCSV );
     getUserParameter( "QCut", QCut );
     getUserParameter( "minPtJet", minPtJet );
     getUserParameter( "jetSeparationCut", jetSeparationCut );
@@ -179,7 +180,7 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
     if(hlt(PDEnumString::HLT_DoubleMu4_JpsiTrkTrk_Displaced_v)) jpsitktk =  true;
     if(hlt(PDEnumString::HLT_DoubleMu4_JpsiTrk_Displaced_v)) jpsitk = true;
 
-    if( !jpsitktk ) return false;
+    if( jpsimu ) return false;
     SetJpsiTrkTrkCut();
 
     if(useHLT && process=="BsJPsiPhi" && !(jpsimu || jpsitktk)) return false;
@@ -279,10 +280,12 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
 
     hmass_ssB->Fill(svtMass->at(iSsB), evtWeight);
 
-//-----------------------------------------OPPOSITE SIDE-----------------------------------------
+//-----------------------------------------JET-----------------------------------------
 
     int bestJet = -1;
-    float bestJetPt = minPtJet; 
+    int bestJet_ = -1;
+    float bestJetTag = CutDeepCSV;
+    float bestJetPt = minPtJet;
 
     //SELECTION
     for (int iJet = 0; iJet<nJets; ++iJet){
@@ -292,14 +295,17 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
 
         //SELECTION
         if(goodJet(iJet)!=true) continue;
-        if(jet_pfcs.size()<2) continue;
+        if(jetNDau->at(iJet)<2) continue;
         if(abs(jetEta->at(iJet))>2.4) continue;
         if(jetPt->at(iJet)<minPtJet) continue;
-        if(GetJetProbb(iJet)>=0){
-            if(GetJetProbb(iJet)<CutDF) continue;
-        }else{
-            if(jetCSV->at(iJet)<CutCSV) continue;
-        }
+
+        (tWriter->jetPt_v)->push_back(jetPt->at(iJet));
+        (tWriter->jetCSV_v)->push_back(GetJetProbb(iJet));
+        (tWriter->jetHasAncestor_v)->push_back(GetJetAncestor( iJet, &ListB ));
+
+        float bTag = GetJetProbb(iJet);
+        float cutbTag = CutDeepCSV;
+        if(bTag < cutbTag) continue;
 
         float jetDrB = deltaR(jetEta->at( iJet ), jetPhi->at( iJet ), tB.Eta(), tB.Phi());
         if( jetDrB < jetSeparationCut ) continue;
@@ -314,26 +320,35 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
         float jetDz=0;
         for(auto it:jet_tks) jetDz += dZ(it, iSsPV);
         jetDz/=jet_tks.size();
-        if(abs(jetDz)>10) continue;
+        if(abs(jetDz)>jetDzCut) continue;
 
-        if(jetPt->at(iJet)>bestJetPt){
-            bestJetPt = jetPt->at(iJet);
+        if(bTag>bestJetTag){
+            bestJetTag = bTag;
             bestJet = iJet;
         }
 
+        if(jetPt->at(iJet)>bestJetPt){
+            bestJetPt = jetPt->at(iJet);
+            bestJet_ = iJet;
+        }
+
+    }
+
+    if(bestJetTag<0){
+        bestJet = bestJet_;
     }
 
     //TAG
     if(bestJet < 0){
         (tWriter->osJet) = 0;
-        (tWriter->evtNumber)= event_tot;
+        (tWriter->evtNumber) = event_tot;
         tWriter->fill();
         return true;
     }
 
     (tWriter->osJet) = 1;
 
-    hmass_ssB_os->Fill(svtMass->at(iSsB));
+    hmass_ssB_os->Fill(svtMass->at(iSsB), evtWeight);
 
     //indices
     int iJet = bestJet;
@@ -355,27 +370,28 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
     //Jet Charge
     float jet_charge = GetJetCharge(iJet, kappa);
 
-    //------------------------------------------------FILLING------------------------------------------------
-    (tWriter->jetPt)= jetPt->at(iJet);
-    (tWriter->jetEta)= jetEta->at(iJet);
-    (tWriter->jetPhi)= jetPhi->at(iJet);
-    (tWriter->jetCharge)= jet_charge;
-    (tWriter->jetCSV)= jetCSV->at(iJet);
-    (tWriter->jetDFprobb)= GetJetProbb(iJet);
-    (tWriter->jetSize)= jet_tks.size();
-    (tWriter->jetDrB)= jetDrB;
-    (tWriter->jetDzB)= jetDzB ;
+    (tWriter->jetPt) = jetPt->at(iJet);
+    (tWriter->jetEta) = jetEta->at(iJet);
+    (tWriter->jetPhi) = jetPhi->at(iJet);
+    (tWriter->jetCharge) = jet_charge;
+    (tWriter->jetDeepCSV) = GetJetProbb(iJet);
+    (tWriter->jetDrB) = jetDrB;
+    (tWriter->jetDzB) = jetDzB;
+    (tWriter->jetNDau) = jetNDau->at(iJet);
+    (tWriter->jetNHF) = jetNHF->at(iJet);
+    (tWriter->jetNEF) = jetNEF->at(iJet);
+    (tWriter->jetCHF) = jetCHF->at(iJet);
+    (tWriter->jetCEF) = jetCEF->at(iJet);
+    (tWriter->jetNCH) = jetNCH->at(iJet);
 
     //------------------------------------------------TAG------------------------------------------------
-    
-    if(jetAncestor<0){
-        hmass_ssB_osJetwoAnc->Fill(svtMass->at(iSsB));
-        (tWriter->jetHasAncestor)= 0;
 
-    }else{
-        hmass_ssB_osJetwAnc->Fill(svtMass->at(iSsB));
-        (tWriter->jetHasAncestor)= 1;
-    }
+    (tWriter->jetHasAncestor) = jetAncestor;
+
+    if(jetAncestor<0)
+        hmass_ssB_osJetwoAnc->Fill(svtMass->at(iSsB), evtWeight);
+    else
+        hmass_ssB_osJetwAnc->Fill(svtMass->at(iSsB), evtWeight);
 
     int isB = 0;
     (tWriter->osJetTag) = -2;
@@ -384,16 +400,44 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
     if(jet_charge > +QCut ) isB = -1;
 
     if( TMath::Sign(1, ssBLund) == isB ){ 
-        hmass_ssB_osRT->Fill(svtMass->at(iSsB));
-        (tWriter->osJetTag)= 1;
+        hmass_ssB_osRT->Fill(svtMass->at(iSsB), evtWeight);
+        (tWriter->osJetTag) = 1;
     }
 
     if( TMath::Sign(1, ssBLund) == -1*isB ){
-        hmass_ssB_osWT->Fill(svtMass->at(iSsB));
-        (tWriter->osJetTag)= 0;
+        hmass_ssB_osWT->Fill(svtMass->at(iSsB), evtWeight);
+        (tWriter->osJetTag) = 0;
     }
 
-    (tWriter->evtNumber)= event_tot;
+    //------------------------------------------------TRACKS------------------------------------------------
+
+    for(auto it:jet_tks){
+        (tWriter->trkPt)->push_back(trkPt->at(it));
+        (tWriter->trkEta)->push_back(trkEta->at(it));
+        (tWriter->trkPhi)->push_back(trkPhi->at(it));
+        (tWriter->trkCharge)->push_back(trkCharge->at(it));
+        (tWriter->trkIsHighPurity)->push_back( ( trkQuality->at( it ) >> 2 ) & 1 );
+        (tWriter->trkDxy)->push_back( dXYjet(it, iSsPV, iJet) );
+        (tWriter->trkDz)->push_back(dZ(it, iSsPV));        
+        (tWriter->trkIsInJet)->push_back( 1 );
+    }
+
+    for (int iTrk = 0; iTrk<nTracks; ++iTrk){
+
+        if( deltaR(jetEta->at(iJet), jetPhi->at(iJet), trkEta->at(iTrk), trkPhi->at(iTrk)) > 0.5 ) continue;
+        if(std::find(jet_tks.begin(), jet_tks.end(), iTrk) != jet_tks.end()) continue;
+
+        (tWriter->trkPt)->push_back(trkPt->at(iTrk));
+        (tWriter->trkEta)->push_back(trkEta->at(iTrk));
+        (tWriter->trkPhi)->push_back(trkPhi->at(iTrk));
+        (tWriter->trkCharge)->push_back(trkCharge->at(iTrk));
+        (tWriter->trkIsHighPurity)->push_back( ( trkQuality->at( iTrk ) >> 2 ) & 1 );
+        (tWriter->trkDxy)->push_back( dXYjet(iTrk, iSsPV, iJet) );
+        (tWriter->trkDz)->push_back(dZ(iTrk, iSsPV));
+        (tWriter->trkIsInJet)->push_back( 0 );        
+    }
+
+    (tWriter->evtNumber) = event_tot;
     tWriter->fill();
 
     return true;
@@ -410,15 +454,15 @@ void PDAnalyzer::endJob() {
 
 //printing results
 
-    float eff   = static_cast<float>(hmass_ssB_os->GetEntries()) / static_cast<float>(hmass_ssB->GetEntries());
-    float w     = static_cast<float>(hmass_ssB_osWT->GetEntries()) / static_cast<float>(hmass_ssB_os->GetEntries());
+    float eff   = static_cast<float>(hmass_ssB_os->Integral()) / static_cast<float>(hmass_ssB->Integral());
+    float w     = static_cast<float>(hmass_ssB_osWT->Integral()) / static_cast<float>(hmass_ssB_os->Integral());
     float power = eff*pow(1-2*w, 2);
 
     cout<<"wAnc woAnc"<<endl;
-    cout<<hmass_ssB_osJetwAnc->GetEntries()<<" "<<hmass_ssB_osJetwoAnc->GetEntries()<<endl<<endl;
+    cout<<hmass_ssB_osJetwAnc->Integral()<<" "<<hmass_ssB_osJetwoAnc->Integral()<<endl<<endl;
 
     cout<<"#Bp eff% w% P%"<<endl;
-    cout<<hmass_ssB->GetEntries()<<" "<<eff*100<<" "<<w*100<<" "<<power*100<<endl;
+    cout<<hmass_ssB->Integral()<<" "<<eff*100<<" "<<w*100<<" "<<power*100<<endl;
 
     return;
 }
@@ -435,21 +479,6 @@ void PDAnalyzer::save() {
 
     return;
 }
-
-
-// to plot some histogram immediately after the ntuple loop
-// "uncomment" the following lines
-/*
-void PDAnalyzer::plot() {
-    TCanvas* can = new TCanvas( "muoPt", "muoPt", 800, 600 );
-    can->cd();
-    can->Divide( 1, 2 );
-    can->cd( 1 );
-    hptmumax->Draw();
-    hptmu2nd->Draw();
-    return;
-}
-*/
 
 
 // ======MY FUNCTIONS===============================================================================

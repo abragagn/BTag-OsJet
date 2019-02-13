@@ -63,10 +63,10 @@ class PDAnalyzer: public virtual PDAnalyzerUtil
 
 	double ptCut; //needed for paolo's code for unknow reasons
 
-	bool verbose, useHLT;
+	bool verbose, useHLT, useDeepCSV;
 	TString outputFile, process;
 
-	float kappa, CutCSV, CutDF, QCut, minPtJet, jetSeparationCut, jetDzCut;
+	float kappa, CutCSV, CutDeepCSV, QCut, minPtJet, jetSeparationCut, jetDzCut;
 
 	TH1D* hmass_ssB;
 	TH1D* hmass_ssB_os;

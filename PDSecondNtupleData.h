@@ -12,6 +12,18 @@ void Reset() { autoReset(); }
 
 PDSecondNtupleData() {
 
+    jetPt_v   = new vector <float>;
+    jetCSV_v   = new vector <float>;
+    jetHasAncestor_v   = new vector <float>;
+
+    trkPt   = new vector <float>;
+    trkEta  = new vector <float>;
+    trkPhi  = new vector <float>;
+    trkCharge = new vector <int>;
+    trkIsHighPurity = new vector <int>;
+    trkDxy  = new vector <float>;
+    trkDz   = new vector <float>;
+    trkIsInJet = new vector <int>;
 
 }
 virtual ~PDSecondNtupleData() {
@@ -59,12 +71,31 @@ void initTree() {
     setBranch( "jetPhi", &jetPhi, "jetPhi/F", &b_jetPhi );
     setBranch( "jetCharge", &jetCharge, "jetCharge/F", &b_jetCharge );
     setBranch( "jetCSV", &jetCSV, "jetCSV/F", &b_jetCSV );
-    setBranch( "jetDFprobb", &jetDFprobb, "jetDFprobb/F", &b_jetDFprobb );
+    setBranch( "jetDeepCSV", &jetDeepCSV, "jetDeepCSV/F", &b_jetDeepCSV );
     setBranch( "jetDrB", &jetDrB, "jetDrB/F", &b_jetDrB );
     setBranch( "jetDzB", &jetDzB, "jetDzB/F", &b_jetDzB );
 
-    setBranch( "jetSize", &jetSize, "jetSize/I", &b_jetSize );
+    setBranch( "jetNDau", &jetNDau, "jetNDau/I", &b_jetNDau );
+    setBranch( "jetNHF", &jetNHF, "jetNHF/F", &b_jetNHF );
+    setBranch( "jetNEF", &jetNEF, "jetNEF/F", &b_jetNEF );
+    setBranch( "jetCHF", &jetCHF, "jetCHF/F", &b_jetCHF );
+    setBranch( "jetCEF", &jetCEF, "jetCEF/F", &b_jetCEF );
+    setBranch( "jetNCH", &jetNCH, "jetNCH/F", &b_jetNCH );
+
     setBranch( "jetHasAncestor", &jetHasAncestor, "jetHasAncestor/I", &b_jetHasAncestor );
+
+    setBranch( "jetPt_v", &jetPt_v , 8192, 99, &b_jetPt_v );
+    setBranch( "jetCSV_v", &jetCSV_v , 8192, 99, &b_jetCSV_v );
+    setBranch( "jetHasAncestor_v", &jetHasAncestor_v , 8192, 99, &b_jetHasAncestor_v );
+
+    setBranch( "trkPt", &trkPt , 8192, 99, &b_trkPt );
+    setBranch( "trkEta", &trkEta , 8192, 99, &b_trkEta );
+    setBranch( "trkPhi", &trkPhi , 8192, 99, &b_trkPhi );
+    setBranch( "trkCharge", &trkCharge , 8192, 99, &b_trkCharge );
+    setBranch( "trkIsHighPurity", &trkIsHighPurity , 8192, 99, &b_trkIsHighPurity );
+    setBranch( "trkDxy", &trkDxy , 8192, 99, &b_trkDxy );
+    setBranch( "trkDz", &trkDz , 8192, 99, &b_trkDz );
+    setBranch( "trkIsInJet", &trkIsInJet , 8192, 99, &b_trkIsInJet );
 
 }
 
@@ -79,11 +110,20 @@ TBranch *b_ssbSVT, *b_ssbPVT, *b_ssbLund, *b_evtNumber, *b_hltJpsiMu, *b_hltJpsi
 int osJetTag, osJet;
 TBranch *b_osJetTag, *b_osJet;
 
-float jetPt, jetEta, jetPhi, jetCharge, jetCSV, jetDrB, jetDzB, jetDFprobb;
-int jetSize, jetHasAncestor;
+float jetPt, jetEta, jetPhi, jetCharge, jetCSV, jetDrB, jetDzB, jetDeepCSV, jetNHF, jetNEF, jetCHF, jetCEF, jetNCH;
+int jetNDau, jetHasAncestor;
 
-TBranch *b_jetPt, *b_jetEta, *b_jetPhi, *b_jetCharge, *b_jetCSV, *b_jetDrB, *b_jetDzB, *b_jetDFprobb;
-TBranch *b_jetSize, *b_jetHasAncestor;
+TBranch *b_jetPt, *b_jetEta, *b_jetPhi, *b_jetCharge, *b_jetCSV, *b_jetDrB, *b_jetDzB, *b_jetDeepCSV, *b_jetNHF, *b_jetNEF, *b_jetCHF, *b_jetCEF, *b_jetNCH;
+TBranch *b_jetNDau, *b_jetHasAncestor;
+
+vector <float> *trkPt, *trkEta, *trkPhi, *trkDxy, *trkDz;
+vector <int> *trkCharge, *trkIsHighPurity, *trkIsInJet;
+TBranch *b_trkPt, *b_trkEta, *b_trkPhi, *b_trkDxy, *b_trkDz;
+TBranch *b_trkCharge, *b_trkIsHighPurity, *b_trkIsInJet;
+
+vector <float> *jetPt_v, *jetCSV_v, *jetHasAncestor_v;
+TBranch *b_jetPt_v, *b_jetCSV_v, *b_jetHasAncestor_v;
+
 
 private:
 
