@@ -63,17 +63,19 @@ class PDAnalyzer: public virtual PDAnalyzerUtil
 
 	double ptCut; //needed for paolo's code for unknow reasons
 
-	bool verbose, useHLT, useDeepCSV;
+	bool verbose, useHLT, useDeepCSV, saveNotTaggedEvets;
 	TString outputFile, process;
 
 	float kappa, CutCSV, CutDeepCSV, QCut, minPtJet, jetSeparationCut, jetDzCut;
 
-	TH1D* hmass_ssB;
-	TH1D* hmass_ssB_os;
-	TH1D* hmass_ssB_osWT;
-	TH1D* hmass_ssB_osRT;
-	TH1D* hmass_ssB_osJetwAnc;
-	TH1D* hmass_ssB_osJetwoAnc;
+	TH1F* hmass_ssB;
+	TH1F* hmass_ssB_os;
+	TH1F* hmass_ssB_osWT;
+	TH1F* hmass_ssB_osRT;
+	TH1F* hmass_ssB_osJetwAnc;
+	TH1F* hmass_ssB_osJetwoAnc;
+
+	TH1F* hTest;
 
 // additional features: second ntuple
 	PDSecondNtupleWriter* tWriter;

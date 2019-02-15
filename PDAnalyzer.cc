@@ -39,6 +39,8 @@ PDAnalyzer::PDAnalyzer() {
     setUserParameter( "process", "BsJPsiPhi" );
     setUserParameter( "useHLT", "false" );
 
+    setUserParameter( "saveNotTaggedEvets", "true" );
+
     //Jet Parameters
     setUserParameter( "CutCSV", "0.8838" ); //loose = 0.5803, medium = 0.8838, tight = 0.9693
     setUserParameter( "CutDeepCSV", "0.4941" );  //loose = 0.1522, medium = 0.4941, tight = 0.8001
@@ -71,6 +73,8 @@ void PDAnalyzer::beginJob() {
 
     getUserParameter( "useHLT", useHLT );
     getUserParameter( "process", process );
+
+    getUserParameter( "saveNotTaggedEvets", saveNotTaggedEvets );
  
     getUserParameter( "minPtJet", minPtJet );
     getUserParameter( "kappa", kappa );
@@ -109,22 +113,25 @@ void PDAnalyzer::book() {
 
 
     autoSavedObject =
-    hmass_ssB       = new TH1D( "hmass_ssB", "hmass_ssB", nbin, min, max );
+    hmass_ssB       = new TH1F( "hmass_ssB", "hmass_ssB", nbin, min, max );
 
     autoSavedObject =
-    hmass_ssB_os        = new TH1D( "hmass_ssB_os", "hmass_ssB_os", nbin, min, max );
+    hmass_ssB_os        = new TH1F( "hmass_ssB_os", "hmass_ssB_os", nbin, min, max );
 
     autoSavedObject =
-    hmass_ssB_osWT  = new TH1D( "hmass_ssB_osWT", "hmass_ssB_osWT", nbin, min, max );
+    hmass_ssB_osWT  = new TH1F( "hmass_ssB_osWT", "hmass_ssB_osWT", nbin, min, max );
 
     autoSavedObject =
-    hmass_ssB_osRT  = new TH1D( "hmass_ssB_osRT", "hmass_ssB_osRT", nbin, min, max );
+    hmass_ssB_osRT  = new TH1F( "hmass_ssB_osRT", "hmass_ssB_osRT", nbin, min, max );
 
     autoSavedObject =
-    hmass_ssB_osJetwAnc = new TH1D( "hmass_ssB_osJetwAnc", "hmass_ssB_osJetwAnc", nbin, min, max );
+    hmass_ssB_osJetwAnc = new TH1F( "hmass_ssB_osJetwAnc", "hmass_ssB_osJetwAnc", nbin, min, max );
     
     autoSavedObject =
-    hmass_ssB_osJetwoAnc    = new TH1D( "hmass_ssB_osJetwoAnc", "hmass_ssB_osJetwoAnc", nbin, min, max );
+    hmass_ssB_osJetwoAnc    = new TH1F( "hmass_ssB_osJetwoAnc", "hmass_ssB_osJetwoAnc", nbin, min, max );
+
+    autoSavedObject =
+    hTest    = new TH1F( "hTest", "hTest", 500, -2, 2 );
 
     return;
 
@@ -280,6 +287,76 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
 
     hmass_ssB->Fill(svtMass->at(iSsB), evtWeight);
 
+    vector <int> trk_pv = tracksFromPV( iSsPV );
+    vector <int> trk_pv0 = tracksFromPV( 0 );
+
+    vector<int> pvTrkSVT;
+    for(auto it:tkSsB) pvTrkSVT.push_back(trkPVtx->at(it));
+    int max = 0;
+    int most_common = -1;
+    map<int,int> m;
+    for (auto vi:pvTrkSVT) {
+      m[vi]++;
+      if (m[vi] > max) {
+        max = m[vi]; 
+        most_common = vi;
+      }
+    }
+
+    vector <int> trk_pvcommon = tracksFromPV( most_common );
+
+/////////// DEBUG VERTICES
+/*
+    int selFlag = PDEnumString::general | PDEnumString::packed;
+    vector<int> testList;
+
+    cout<<endl<<endl<<"SVT "<<most_common<<endl<<endl;
+    for(auto it:tkSsB){
+        if(!(( trkQuality->at( it ) >> 2 ) & 1)) continue;
+        cout<<it<<" - ";
+        int gen = GetClosestGen(trkEta->at(it), trkPhi->at(it), trkPt->at(it));
+        if(gen>=0) cout<<genId->at(gen)<<" - ";
+        else cout<<"0 - ";
+        cout<<trkPt->at(it)<<" "<<trkEta->at(it)<<" "<<trkPhi->at(it);
+        if(gen>=0){cout<<"   M "; printMotherChain(gen);}
+        cout<<endl;
+    }
+
+    cout<<endl<<endl<<"PV "<<iSsPV<<" "<<pvtNTracks->at(iSsPV)<<endl<<endl;
+    for(auto it:trk_pv){
+        if ( !(trkType->at( it ) & selFlag) ) continue; 
+        if(!(( trkQuality->at( it ) >> 2 ) & 1)) continue;
+        cout<<it<<" - ";
+        int gen = GetClosestGen(trkEta->at(it), trkPhi->at(it), trkPt->at(it));
+        if(gen>=0) cout<<genId->at(gen)<<" - ";
+        else cout<<"0 - ";
+        cout<<trkPt->at(it)<<" "<<trkEta->at(it)<<" "<<trkPhi->at(it);
+        if(gen>=0){cout<<"   M "; printMotherChain(gen);}
+        if(GetOverlappedTrack(it, &tkSsB) != -1) cout<<" <------- "<<endl;
+        else cout<<endl;
+        if(GetOverlappedTrack(it, &tkSsB) == -1)
+            if(fabs(dXY(it, pvtX->at(iSsPV), pvtY->at(iSsPV)))>0.2){
+                testList.push_back(it);
+                hTest->Fill(dXY(it, pvtX->at(iSsPV), pvtY->at(iSsPV)));
+            }
+    }
+
+    cout<<"Trk Charge "<<GetListCharge(&testList, 1.0)<<", lund "<<ssBLund<<endl;
+
+    if(testList.size()>1){
+        hmass_ssB_os->Fill(svtMass->at(iSsB), evtWeight);
+        int isB = 0;
+        if(GetListCharge(&testList, 1.0) < -QCut ) isB = +1;
+        if(GetListCharge(&testList, 1.0) > +QCut ) isB = -1;
+
+        if( TMath::Sign(1, ssBLund) == isB )
+            hmass_ssB_osRT->Fill(svtMass->at(iSsB), evtWeight);
+
+        if( TMath::Sign(1, ssBLund) == -1*isB )
+            hmass_ssB_osWT->Fill(svtMass->at(iSsB), evtWeight);
+    }
+    return false;
+*/
 //-----------------------------------------JET-----------------------------------------
 
     int bestJet = -1;
@@ -342,7 +419,7 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
     if(bestJet < 0){
         (tWriter->osJet) = 0;
         (tWriter->evtNumber) = event_tot;
-        tWriter->fill();
+        if(saveNotTaggedEvets) tWriter->fill();
         return true;
     }
 
@@ -360,11 +437,22 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
 
     //TAGGING VARIABLES
     //Separation
+    cout<<endl;
     float jetDz=0;
     for(auto it:jet_tks) jetDz+= dZ(it, iSsPV);
 
-    float jetDzB = jetDz/jet_tks.size();
 
+    cout<<std::setprecision(3);
+    cout<<" --- "<<iSsPV<<" ("<<pvtX->at(iSsPV)<<" "<<pvtY->at(iSsPV)<<" "<<pvtZ->at(iSsPV)<<")"<<endl;
+    cout<<" --- "<<iJet<<" "<<jetPt->at(iJet)<<" "<<jetEta->at(iJet)<<" "<<jetPhi->at(iJet)<<"   "<<jetDz/jet_tks.size()<<endl;
+    for(auto it:jet_tks){
+        cout<<trkJet->at(it)<<" "<<trkPt->at(it)<<" "<<trkEta->at(it)<<" "<<trkPhi->at(it)<<" -  "<<dZ(it, iSsPV)<<" - ";
+        cout<<trkPVtx->at(it)<<" ("<<pvtX->at(trkPVtx->at(it))<<" "<<pvtY->at(trkPVtx->at(it))<<" "<<pvtZ->at(trkPVtx->at(it))<<")"<<endl;
+    }
+
+    cout<<endl;
+
+    float jetDzB = jetDz/jet_tks.size();
     float jetDrB = deltaR(jetEta->at( iJet ), jetPhi->at( iJet ), tB.Eta(), tB.Phi());
 
     //Jet Charge

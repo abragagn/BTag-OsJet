@@ -63,7 +63,7 @@ void initTree() {
     setBranch( "hltJpsiTrkTrk", &hltJpsiTrkTrk , "hltJpsiTrkTrk/I" , &b_hltJpsiTrkTrk );
     setBranch( "hltJpsiTrk", &hltJpsiTrk , "hltJpsiTrk/I" , &b_hltJpsiTrk );
 
-    setBranch( "osJetTag", &osJetTag, "osJetTag/I", &b_osJetTag );      
+    setBranch( "osJetTag", &osJetTag, "osJetTag/I", &b_osJetTag );
     setBranch( "osJet", &osJet, "osJet/I", &b_osJet );      
 
     setBranch( "jetPt", &jetPt, "jetPt/F", &b_jetPt );
