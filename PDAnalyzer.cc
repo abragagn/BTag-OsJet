@@ -38,12 +38,9 @@ PDAnalyzer::PDAnalyzer() {
     setUserParameter( "verbose", "f" );
 
     setUserParameter( "process", "BsJPsiPhi" );
-    setUserParameter( "useHLT", "false" );
-
-    setUserParameter( "saveNotTaggedEvets", "true" );
+    setUserParameter( "useHLT", "true" );
 
     //Jet Parameters
-    setUserParameter( "CutCSV", "0.8838" ); //loose = 0.5803, medium = 0.8838, tight = 0.9693
     setUserParameter( "CutDeepCSV", "0.4941" );  //loose = 0.1522, medium = 0.4941, tight = 0.8001
     setUserParameter( "kappa", "1.0" );
     setUserParameter( "QCut", "0.0" );
@@ -75,12 +72,9 @@ void PDAnalyzer::beginJob() {
 
     getUserParameter( "useHLT", useHLT );
     getUserParameter( "process", process );
-
-    getUserParameter( "saveNotTaggedEvets", saveNotTaggedEvets );
  
     getUserParameter( "minPtJet", minPtJet );
     getUserParameter( "kappa", kappa );
-    getUserParameter( "CutCSV", CutCSV );
     getUserParameter( "CutDeepCSV", CutDeepCSV );
     getUserParameter( "QCut", QCut );
     getUserParameter( "minPtJet", minPtJet );
@@ -103,11 +97,6 @@ void PDAnalyzer::beginJob() {
     inizializeOSMuonMvaTagReader( "DNNOsMuonHLTJpsiMu_test241" ); //inizialize mva os muon reader
     inizializeOSMuonMvaMistagMethods();   //read os muon method for per-event-mistag 
 
-    int nc = 10;
-    counter = new int[nc];
-    for(int i=0;i<nc;i++)
-        counter[i] = 0;
-
     return;
 
 }
@@ -118,39 +107,6 @@ void PDAnalyzer::book() {
     // putting "autoSavedObject" in front of the histo creation 
     // it's automatically marked for saving on file; the option 
     // is uneffective when not using the full utility
-
-
-    float min = 5.0;
-    float max = 6.0;
-    float nbin = 500;
-
-
-    autoSavedObject =
-    hmass_ssB       = new TH1F( "hmass_ssB", "hmass_ssB", nbin, min, max );
-
-    autoSavedObject =
-    hmass_ssB_os        = new TH1F( "hmass_ssB_os", "hmass_ssB_os", nbin, min, max );
-
-    autoSavedObject =
-    hmass_ssB_osWT  = new TH1F( "hmass_ssB_osWT", "hmass_ssB_osWT", nbin, min, max );
-
-    autoSavedObject =
-    hmass_ssB_osRT  = new TH1F( "hmass_ssB_osRT", "hmass_ssB_osRT", nbin, min, max );
-
-    autoSavedObject =
-    hmass_ssB_osJetwAnc = new TH1F( "hmass_ssB_osJetwAnc", "hmass_ssB_osJetwAnc", nbin, min, max );
-    
-    autoSavedObject =
-    hmass_ssB_osJetwoAnc    = new TH1F( "hmass_ssB_osJetwoAnc", "hmass_ssB_osJetwoAnc", nbin, min, max );
-
-    autoSavedObject =
-    hTest    = new TH1F( "hTest", "hTest", 100, 0, 30 );
-
-    autoSavedObject =
-    hTest2    = new TH1F( "hTest2", "hTest2", 100, 0, 30 );
-
-    autoSavedObject =
-    hTest3    = new TH1F( "hTest3", "hTest3", 100, -20, 20 );
 
     return;
 
@@ -217,7 +173,6 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
 
     int ssbSVT = GetCandidate(process);
     if(ssbSVT<0) return false;
-    counter[3]++;
 
     bool isTight = false;
     int ssbSVTtight = GetTightCandidate(process);
@@ -281,26 +236,17 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
     setSsForTag(ssbSVT, ssbPVT);
 
     if(getOsMuon()>=0) return false; 
-    counter[6]++;
     if(nElectrons>0) return false; 
 
     //FILLING SS
-    (tWriter->ssbPt) = tB.Pt();
-    (tWriter->ssbEta) = tB.Eta();
-    (tWriter->ssbPhi) = tB.Phi();
     (tWriter->ssbMass) = svtMass->at(ssbSVT);
     (tWriter->ssbIsTight) = isTight;
 
-    (tWriter->ssbLxy) = GetCt2D(tB, ssbSVT) / (MassBs/tB.Pt());
-    (tWriter->ssbCt2D) = GetCt2D(tB, ssbSVT);
-    (tWriter->ssbCt2DErr) = GetCt2DErr(tB, ssbSVT, ssbPVT);
-    (tWriter->ssbCt2DSigmaUnit) = GetCt2D(tB, ssbSVT, ssbPVT)/GetCt2DErr(tB, ssbSVT, ssbPVT);
-    (tWriter->ssbCt3D) = GetCt3D(tB, ssbSVT, ssbPVT);
-    (tWriter->ssbCt3DErr) = GetCt3DErr(tB, ssbSVT, ssbPVT);
-    (tWriter->ssbCt3DSigmaUnit) = GetCt3D(tB, ssbSVT, ssbPVT)/GetCt3DErr(tB, ssbSVT, ssbPVT);
-
     (tWriter->ssbSVT) = ssbSVT;
     (tWriter->ssbPVT) = ssbPVT;
+    (tWriter->ssbPVTx) = pvtX->at(ssbPVT);
+    (tWriter->ssbPVTy) = pvtY->at(ssbPVT);
+    (tWriter->ssbPVTz) = pvtZ->at(ssbPVT);
     
     (tWriter->ssbLund) = ssbLund;
 
@@ -309,178 +255,11 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
     (tWriter->hltJpsiTrk) = jpsitk;
     
     (tWriter->evtWeight) = evtWeight;
-    (tWriter->evtNb) = ListLongLivedB.size();
 
-    hmass_ssB->Fill(svtMass->at(ssbSVT), evtWeight);
-    counter[0]+=evtWeight;
-
-/*
-    vector <int> trk_pv = tracksFromPV( ssbPVT );
-    vector <int> trk_pv0 = tracksFromPV( 0 );
-
-    vector<int> pvTrkSVT;
-    for(auto it:tkSsB) pvTrkSVT.push_back(trkPVtx->at(it));
-    int max = 0;
-    int most_common = -1;
-    map<int,int> m;
-    for (auto vi:pvTrkSVT) {
-      m[vi]++;
-      if (m[vi] > max) {
-        max = m[vi]; 
-        most_common = vi;
-      }
-    }
-
-    vector <int> trk_pvcommon = tracksFromPV( most_common );
-
-    int bestos=-1;
-    float bestospt=0;
-
-    for( uint i=0; i<genId->size(); ++i ){
-        if(!IsB(i)) continue;
-        if(TagMixStatus(i)==2) continue;
-        if((int)i==genBindex) continue;
-        if(AreOverlapped( genPt->at(i), genEta->at(i), genPhi->at(i),  genPt->at(genBindex), genEta->at(genBindex), genPhi->at(genBindex) ) ) continue;
-        if(deltaR(genEta->at(i), genPhi->at(i),genEta->at(genBindex), genPhi->at(genBindex))<=0.4) continue;
-        if(genPt->at(i)>bestospt){
-            bestospt = genPt->at(i);
-            bestos = i;
-        }
-    }
-
-    if(bestos==-1) return true;
-
-    cout<<"------- PV "<<ssbPVT<<endl;
-
-    const vector <int>& vD = allDaughters(bestos);
-    cout<<genId->at(bestos)<<endl;
-    for(uint i=0; i<vD.size(); ++i){
-        cout<<genId->at(vD[i])<<" [ "<<genPt->at(vD[i])<<" "<<genEta->at(vD[i])<<" "<<genPhi->at(vD[i])<<" ]"<<endl;
-    }
-    cout<<endl;
-    vector <int> trkCone;
-    for(int i=0; i<nTracks; ++i){
-        if(!(( trkQuality->at( i ) >> 2 ) & 1)) continue;
-        if(deltaR(trkEta->at(i),trkPhi->at(i),genEta->at(bestos),genPhi->at(bestos))>0.4) continue;
-        if(fabs(dZ(i, ssbPVT))>0.1) continue;
-        trkCone.push_back(i);
-        cout<<" [ "<<trkPt->at(i)<<" "<<trkEta->at(i)<<" "<<trkPhi->at(i)<<" ]  dz "<<dZ(i, ssbPVT)<<" ("<<trkPVtx->at(i)<<")"<<endl;
-    }
-    counter[0]++;
-
-    if(trkCone.size()>=2){
-        float q = GetListCharge(&trkCone, kappa);
-        int d;
-        if(q < -QCut ) d = +1;
-        if(q > +QCut ) d = -1;
-
-        if( TMath::Sign(1, ssbLund) == d )
-            counter[1]++;
-
-        if( TMath::Sign(1, ssbLund) == -1*d )
-            counter[2]++;
-    }
-
-    return true;
-
-/////////// DEBUG VERTICES
-
-    vector<int> testList;
-
-    cout<<endl<<"--------------------------------"<<endl;
-    for( uint i=0; i<genId->size(); ++i ){
-        if(!IsB(i)) continue;
-        if(TagMixStatus(i)==2) continue;
-        bool skip = false;
-        for(auto it:testList)
-            if(AreOverlapped( genPt->at(i), genEta->at(i), genPhi->at(i), 
-                            genPt->at(it), genEta->at(it), genPhi->at(it) ) )
-                skip = true;
-        if(skip) continue;
-        testList.push_back(i);
-        cout<<std::setprecision(3);
-        cout<<genId->at(i)<<" [ "<<genPt->at(i)<<" "<<genEta->at(i)<<" "<<genPhi->at(i)<<" ]"<<endl;
-        printDaughterTreePt(i, " ");
-        cout<<endl;
-        int clJet = GetClosesJet(genPt->at(i), genEta->at(i), genPhi->at(i));
-        if(clJet>=0){
-            if(!AreOverlapped( genPt->at(i), genEta->at(i), genPhi->at(i),  genPt->at(genBindex), genEta->at(genBindex), genPhi->at(genBindex) ) ){
-                hTest2->Fill(genPt->at(i));
-            }
-            cout<<"CLOSEST JET "<<clJet<<" [ "<<jetPt->at(clJet)<<" "<<jetEta->at(clJet)<<" "<<jetPhi->at(clJet)<<" ] dr "<<deltaR(jetEta->at(clJet), jetPhi->at(clJet), genEta->at(i), genPhi->at(i))<<endl;
-            cout<<"CSV "<<GetJetProbb(clJet)<<endl;
-            vector <int> jet_pfcs = pfCandFromJet( clJet );
-            vector <int> jet_tks = tracksFromJet( clJet );
-            for(auto it:jet_pfcs){
-                int lund = GetClosestGen(pfcEta->at(it), pfcPhi->at(it), pfcPt->at(it));
-                if(lund>=0) cout<<genId->at(lund);
-                else cout<<"0";
-                cout<<" ["<<pfcPt->at(it)<<" "<<pfcEta->at(it)<<" "<<pfcPhi->at(it)<<"] E "<<pfcE->at(it)<<", q "<<pfcCharge->at(it);
-                if(pfcTrk->at(it)>=0) cout<<" dz "<<dZ(pfcTrk->at(it), ssbPVT)<<" ("<<trkPVtx->at(pfcTrk->at(it))<<")";
-                cout<<endl;
-            }
-        }
-        else if(!AreOverlapped( genPt->at(i), genEta->at(i), genPhi->at(i),  genPt->at(genBindex), genEta->at(genBindex), genPhi->at(genBindex) ) ) 
-            hTest->Fill(genPt->at(i));
-
-        cout<<endl<<endl;
-    }
-
-    int selFlag = PDEnumString::general | PDEnumString::packed;
-
-    cout<<endl<<endl<<"SVT "<<most_common<<endl<<endl;
-    for(auto it:tkSsB){
-        if(!(( trkQuality->at( it ) >> 2 ) & 1)) continue;
-        cout<<it<<" - ";
-        int gen = GetClosestGen(trkEta->at(it), trkPhi->at(it), trkPt->at(it));
-        if(gen>=0) cout<<genId->at(gen)<<" - ";
-        else cout<<"0 - ";
-        cout<<trkPt->at(it)<<" "<<trkEta->at(it)<<" "<<trkPhi->at(it);
-        if(gen>=0){cout<<"   M "; printMotherChain(gen);}
-        cout<<endl;
-    }
-
-    cout<<endl<<endl<<"PV "<<ssbPVT<<" "<<pvtNTracks->at(ssbPVT)<<endl<<endl;
-    for(auto it:trk_pv){
-        if ( !(trkType->at( it ) & selFlag) ) continue; 
-        if(!(( trkQuality->at( it ) >> 2 ) & 1)) continue;
-        cout<<it<<" - ";
-        int gen = GetClosestGen(trkEta->at(it), trkPhi->at(it), trkPt->at(it));
-        if(gen>=0) cout<<genId->at(gen)<<" - ";
-        else cout<<"0 - ";
-        cout<<trkPt->at(it)<<" "<<trkEta->at(it)<<" "<<trkPhi->at(it);
-        if(gen>=0){cout<<"   M "; printMotherChain(gen);}
-        if(GetOverlappedTrack(it, &tkSsB) != -1) cout<<" <------- "<<endl;
-        else cout<<endl;
-        if(GetOverlappedTrack(it, &tkSsB) == -1)
-            if(fabs(dXY(it, pvtX->at(ssbPVT), pvtY->at(ssbPVT)))>0.2){
-                testList.push_back(it);
-                hTest->Fill(dXY(it, pvtX->at(ssbPVT), pvtY->at(ssbPVT)));
-            }
-    }
-
-    cout<<"Trk Charge "<<GetListCharge(&testList, 1.0)<<", lund "<<ssbLund<<endl;
-
-    if(testList.size()>1){
-        hmass_ssB_os->Fill(svtMass->at(ssbSVT), evtWeight);
-        int isB = 0;
-        if(GetListCharge(&testList, 1.0) < -QCut ) isB = +1;
-        if(GetListCharge(&testList, 1.0) > +QCut ) isB = -1;
-
-        if( TMath::Sign(1, ssbLund) == isB )
-            hmass_ssB_osRT->Fill(svtMass->at(ssbSVT), evtWeight);
-
-        if( TMath::Sign(1, ssbLund) == -1*isB )
-            hmass_ssB_osWT->Fill(svtMass->at(ssbSVT), evtWeight);
-    }
-    return false;
-*/
 //-----------------------------------------JET-----------------------------------------
 
     int bestJet = -1;
-    int bestJet_ = -1;
     float bestJetTag = CutDeepCSV;
-    float bestJetPt = minPtJet;
 
     //SELECTION
     for (int iJet = 0; iJet<nJets; ++iJet){
@@ -495,8 +274,6 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
 
         float bTag = GetJetProbb(iJet);
         float cutbTag = CutDeepCSV;
-//        float bTag = jetCSV->at(iJet);
-//        float cutbTag = CutCSV;
         if(bTag < cutbTag) continue;
 
         float jetDrB = deltaR(jetEta->at( iJet ), jetPhi->at( iJet ), tB.Eta(), tB.Phi());
@@ -526,25 +303,10 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
             bestJetTag = bTag;
             bestJet = iJet;
         }
-
-        if(jetPt->at(iJet)>bestJetPt){
-            bestJetPt = jetPt->at(iJet);
-            bestJet_ = iJet;
-        }
-
-    }
-
-    if(bestJetTag<0){
-        bestJet = bestJet_;
     }
 
     //TAG
-    if(bestJet < 0){
-        (tWriter->osJet) = 0;
-        (tWriter->evtNumber) = event_tot;
-        if(saveNotTaggedEvets) tWriter->fill();
-        return true;
-    }
+    if(bestJet < 0) return true;
 
     //indices
     int iJet = bestJet;
@@ -559,15 +321,8 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
         selectedJetTracks.push_back(it);
     }
 
-    if(selectedJetTracks.size()==0){
-        (tWriter->osJet) = 0;
-        (tWriter->evtNumber) = event_tot;
-        if(saveNotTaggedEvets) tWriter->fill();
-        return true;
-    }
+    if(selectedJetTracks.size()==0) return true;
 
-    (tWriter->osJet) = 1;
-    hmass_ssB_os->Fill(svtMass->at(ssbSVT), evtWeight);
 
     //GENINFO
     int jetAncestor = GetJetAncestor( iJet, &ListB );
@@ -583,10 +338,6 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
 
     //Jet Charge
     float jet_charge = GetListCharge(&selectedJetTracks, kappa);
-
-//    cout<<"JET FOUND "<<" [ "<<jetPt->at(iJet)<<" "<<jetEta->at(iJet)<<" "<<jetPhi->at(iJet)<<" ]";
-//    cout<<", dr "<<deltaR(jetEta->at(iJet), jetPhi->at(iJet), genEta->at(genBindex), genPhi->at(genBindex));
-//    cout<<", q "<<jet_charge<<", lundSS "<<ssbLund<<endl;
 
     (tWriter->jetPt) = jetPt->at(iJet);
     (tWriter->jetEta) = jetEta->at(iJet);
@@ -605,29 +356,6 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
     //------------------------------------------------TAG------------------------------------------------
 
     (tWriter->jetHasAncestor) = jetAncestor;
-
-    if(jetAncestor<0)
-        hmass_ssB_osJetwoAnc->Fill(svtMass->at(ssbSVT), evtWeight);
-    else
-        hmass_ssB_osJetwAnc->Fill(svtMass->at(ssbSVT), evtWeight);
-
-    int isB = 0;
-    (tWriter->osJetTag) = -2;
-
-    if(jet_charge < -QCut ) isB = +1;
-    if(jet_charge > +QCut ) isB = -1;
-
-    if( TMath::Sign(1, ssbLund) == isB ){ 
-        hmass_ssB_osRT->Fill(svtMass->at(ssbSVT), evtWeight);
-        (tWriter->osJetTag) = 1;
-        counter[1]+=evtWeight;
-    }
-
-    if( TMath::Sign(1, ssbLund) == -1*isB ){
-        hmass_ssB_osWT->Fill(svtMass->at(ssbSVT), evtWeight);
-        (tWriter->osJetTag) = 0;
-        counter[2]+=evtWeight;
-    }
 
     //------------------------------------------------TRACKS------------------------------------------------
 
@@ -661,12 +389,6 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
     (tWriter->evtNumber) = event_tot;
     tWriter->fill();
 
-    float eff   = static_cast<float>( counter[1]+counter[2] ) / static_cast<float>( counter[0] );
-    float w     = static_cast<float>( counter[2] ) / static_cast<float>( counter[1]+counter[2] );
-    float power = eff*pow(1-2*w, 2);
-
-    cout<<counter[0]<<" - "<<counter[1]<<" - "<<counter[2]<<"     "<<std::setprecision(3)<<eff*100<<"     "<<w*100<<"     "<<power*100<<endl;
-
     return true;
 
 }
@@ -678,22 +400,6 @@ void PDAnalyzer::endJob() {
 // additional features
 
     tWriter->close();   // second ntuple
-
-//printing results
-
-    float eff   = static_cast<float>(hmass_ssB_os->Integral()) / static_cast<float>(hmass_ssB->Integral());
-    float w     = static_cast<float>(hmass_ssB_osWT->Integral()) / static_cast<float>(hmass_ssB_os->Integral());
-    float power = eff*pow(1-2*w, 2);
-
-//    float eff   = static_cast<float>( counter[1]+counter[2] ) / static_cast<float>( counter[0] );
-//    float w     = static_cast<float>( counter[2] ) / static_cast<float>( counter[1]+counter[2] );
-//    float power = eff*pow(1-2*w, 2);
-
-    cout<<"wAnc woAnc"<<endl;
-    cout<<hmass_ssB_osJetwAnc->Integral()<<" "<<hmass_ssB_osJetwoAnc->Integral()<<endl<<endl;
-
-    cout<<"#Bp eff% w% P%"<<endl;
-    cout<<hmass_ssB->Integral()<<" "<<eff*100<<" "<<w*100<<" "<<power*100<<endl;
 
     return;
 }

@@ -70,19 +70,6 @@ class PDAnalyzer: public virtual PDAnalyzerUtil
 
     float kappa, CutCSV, CutDeepCSV, QCut, minPtJet, jetDrCut, jetDzCut, jetChargeDzCut;
 
-    TH1F* hmass_ssB;
-    TH1F* hmass_ssB_os;
-    TH1F* hmass_ssB_osWT;
-    TH1F* hmass_ssB_osRT;
-    TH1F* hmass_ssB_osJetwAnc;
-    TH1F* hmass_ssB_osJetwoAnc;
-
-    TH1F* hTest;
-    TH1F* hTest2;
-    TH1F* hTest3;
-
-    int *counter;
-
 // additional features: second ntuple
     PDSecondNtupleWriter* tWriter;
 
