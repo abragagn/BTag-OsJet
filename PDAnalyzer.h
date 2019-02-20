@@ -68,7 +68,7 @@ class PDAnalyzer: public virtual PDAnalyzerUtil
     bool verbose, useHLT, useDeepCSV, saveNotTaggedEvets;
     TString outputFile, process;
 
-    float kappa, CutCSV, CutDeepCSV, QCut, minPtJet, jetSeparationCut, jetDzCut;
+    float kappa, CutCSV, CutDeepCSV, QCut, minPtJet, jetDrCut, jetDzCut, jetChargeDzCut;
 
     TH1F* hmass_ssB;
     TH1F* hmass_ssB_os;

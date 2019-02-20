@@ -48,8 +48,9 @@ PDAnalyzer::PDAnalyzer() {
     setUserParameter( "kappa", "1.0" );
     setUserParameter( "QCut", "0.0" );
     setUserParameter( "minPtJet", "10" );
-    setUserParameter( "jetSeparationCut", "0.4" );
-    setUserParameter( "jetDzCut", "0.5" );
+    setUserParameter( "jetDrCut", "0.5" );
+    setUserParameter( "jetDzCut", "0.2" );
+    setUserParameter( "jetChargeDzCut", "0.2" );
 
     setUserParameter( "ptCut", "40.0" ); //needed for paolo's code for unknow reasons
 
@@ -83,8 +84,9 @@ void PDAnalyzer::beginJob() {
     getUserParameter( "CutDeepCSV", CutDeepCSV );
     getUserParameter( "QCut", QCut );
     getUserParameter( "minPtJet", minPtJet );
-    getUserParameter( "jetSeparationCut", jetSeparationCut );
+    getUserParameter( "jetDrCut", jetDrCut );
     getUserParameter( "jetDzCut", jetDzCut );
+    getUserParameter( "jetChargeDzCut", jetChargeDzCut );
 
     getUserParameter( "ptCut", ptCut ); //needed for paolo's code for unknow reasons
 
@@ -96,11 +98,15 @@ void PDAnalyzer::beginJob() {
     if(process=="BsJPsiPhi") SetBsMassRange(5.20, 5.50);
     if(process=="BuJPsiK") SetBuMassRange(5.1, 5.50);
 
+    setOsMuonCuts(0.8910, 0.8925, 1. ); //set wp barrel, wp endcap for muonID and Dz cut
+    inizializeMuonMvaReader( "BDTMuonID2017woIPwIso" ); //initialize mva muon id reader
+    inizializeOSMuonMvaTagReader( "DNNOsMuonHLTJpsiMu_test241" ); //inizialize mva os muon reader
+    inizializeOSMuonMvaMistagMethods();   //read os muon method for per-event-mistag 
 
-    counter = new int[3];
-    counter[0] = 0;
-    counter[1] = 0;
-    counter[2] = 0;
+    int nc = 10;
+    counter = new int[nc];
+    for(int i=0;i<nc;i++)
+        counter[i] = 0;
 
     return;
 
@@ -178,6 +184,8 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
             cout << " == at event " << event_file << " " << event_tot << endl;
     }
 // additional features
+    computeMuonVar();   //compute muon variable for soft id
+    inizializeTagVariables(); //initialiaze some variable for tagging
     tWriter->Reset();
     convSpheCart(jetPt, jetEta, jetPhi, jetPx, jetPy, jetPz);
     convSpheCart(muoPt, muoEta, muoPhi, muoPx, muoPy, muoPz);
@@ -202,13 +210,14 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
     if( jpsimu ) return false;
     SetJpsiTrkTrkCut();
 
-    if(useHLT && process=="BsJPsiPhi" && !(jpsimu || jpsitktk)) return false;
-    if(useHLT && process=="BuJPsiK" && !(jpsimu || jpsitk)) return false;
+    if(useHLT && process=="BsJPsiPhi" && !jpsitktk) return false;
+    if(useHLT && process=="BuJPsiK" && !jpsitk) return false;
 
 //------------------------------------------------SEARCH FOR SS---------------------------------------
 
     int ssbSVT = GetCandidate(process);
     if(ssbSVT<0) return false;
+    counter[3]++;
 
     bool isTight = false;
     int ssbSVTtight = GetTightCandidate(process);
@@ -269,9 +278,11 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
 
     int ssbPVT = GetBestPV(ssbSVT, tB);
     if(ssbPVT < 0) return false;
+    setSsForTag(ssbSVT, ssbPVT);
 
-    if(nMuons>2) return false;
-    if(nElectrons>0) return false;
+    if(getOsMuon()>=0) return false; 
+    counter[6]++;
+    if(nElectrons>0) return false; 
 
     //FILLING SS
     (tWriter->ssbPt) = tB.Pt();
@@ -301,6 +312,7 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
     (tWriter->evtNb) = ListLongLivedB.size();
 
     hmass_ssB->Fill(svtMass->at(ssbSVT), evtWeight);
+    counter[0]+=evtWeight;
 
 /*
     vector <int> trk_pv = tracksFromPV( ssbPVT );
@@ -478,13 +490,8 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
 
         //SELECTION
         if(goodJet(iJet)!=true) continue;
-        if(jetNDau->at(iJet)<2) continue;
-        if(abs(jetEta->at(iJet))>2.4) continue;
+        if(abs(jetEta->at(iJet))>2.5) continue;
         if(jetPt->at(iJet)<minPtJet) continue;
-
-        (tWriter->jetPt_v)->push_back(jetPt->at(iJet));
-        (tWriter->jetCSV_v)->push_back(GetJetProbb(iJet));
-        (tWriter->jetHasAncestor_v)->push_back(GetJetAncestor( iJet, &ListB ));
 
         float bTag = GetJetProbb(iJet);
         float cutbTag = CutDeepCSV;
@@ -493,7 +500,7 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
         if(bTag < cutbTag) continue;
 
         float jetDrB = deltaR(jetEta->at( iJet ), jetPhi->at( iJet ), tB.Eta(), tB.Phi());
-        if( jetDrB < jetSeparationCut ) continue;
+        if( jetDrB < jetDrCut ) continue;
 
         bool skip = false; 
         for(auto it:jet_tks){
@@ -505,18 +512,15 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
 
         if(skip) continue;
 
-        float minDz=1e9;
+        int nTrkNear = 0;
         for(auto it:jet_tks){
-            float dz = fabs(dZ(it, ssbPVT));
-            if( dz < minDz){
-                minDz = dz;
-            }
+            if(fabs(dZ(it, ssbPVT))>=jetDzCut) continue;
+            if( !(( trkQuality->at( it ) >> 2 ) & 1) ) continue;
+            if( fabs(trkEta->at(it))>2.5 ) continue;
+            if( trkPt->at(it)<0.7 ) continue;
+            nTrkNear++;
         }
-
-        if(minDz > jetDzCut){
-            cout<<minDz<<endl;
-            continue;
-        }
+        if(nTrkNear < 2) continue;
 
         if(bTag>bestJetTag){
             bestJetTag = bTag;
@@ -542,41 +546,47 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
         return true;
     }
 
-    //cout<<endl<<"JET FOUND "<<jetPt->at(bestJet)<<" "<<jetEta->at(bestJet)<<" "<<jetPhi->at(bestJet)<<endl;
+    //indices
+    int iJet = bestJet;
+    vector <int> jet_tks = tracksFromJet( iJet );
+
+    vector<int> selectedJetTracks;
+    for(auto it:jet_tks){
+        if(fabs(dZ(it, ssbPVT))>=jetChargeDzCut) continue;
+        if( !(( trkQuality->at( it ) >> 2 ) & 1) ) continue;
+        if( fabs(trkEta->at(it))>2.5 ) continue;
+        if( trkPt->at(it)<0.7 ) continue;
+        selectedJetTracks.push_back(it);
+    }
+
+    if(selectedJetTracks.size()==0){
+        (tWriter->osJet) = 0;
+        (tWriter->evtNumber) = event_tot;
+        if(saveNotTaggedEvets) tWriter->fill();
+        return true;
+    }
 
     (tWriter->osJet) = 1;
     hmass_ssB_os->Fill(svtMass->at(ssbSVT), evtWeight);
-
-    //indices
-    int iJet = bestJet;
-    vector <int> jet_pfcs = pfCandFromJet( iJet );
-    vector <int> jet_tks = tracksFromJet( iJet );
 
     //GENINFO
     int jetAncestor = GetJetAncestor( iJet, &ListB );
 
     //TAGGING VARIABLES
     //Separation
-    float minDz=1e9;
-    for(auto it:jet_tks){
-        float dz = fabs(dZ(it, ssbPVT));
-        if( dz < minDz){
-            minDz = dz;
-        }
-    }
+    float jetDzB=0;
+    for(auto it:selectedJetTracks)
+        jetDzB += fabs(dZ(it, ssbPVT));
 
-    float jetDzB = minDz;
+    jetDzB = jetDzB/=selectedJetTracks.size();
     float jetDrB = deltaR(jetEta->at( iJet ), jetPhi->at( iJet ), tB.Eta(), tB.Phi());
 
     //Jet Charge
-    vector<int> jet_tksNear;
-    for(auto it:jet_tks){
-        if(fabs(dZ(it, ssbPVT))>=0.5) continue;
-        if( !(( trkQuality->at( it ) >> 2 ) & 1) ) continue;
-        jet_tksNear.push_back(it);
-    }
+    float jet_charge = GetListCharge(&selectedJetTracks, kappa);
 
-    float jet_charge = GetListCharge(&jet_tksNear, kappa);
+//    cout<<"JET FOUND "<<" [ "<<jetPt->at(iJet)<<" "<<jetEta->at(iJet)<<" "<<jetPhi->at(iJet)<<" ]";
+//    cout<<", dr "<<deltaR(jetEta->at(iJet), jetPhi->at(iJet), genEta->at(genBindex), genPhi->at(genBindex));
+//    cout<<", q "<<jet_charge<<", lundSS "<<ssbLund<<endl;
 
     (tWriter->jetPt) = jetPt->at(iJet);
     (tWriter->jetEta) = jetEta->at(iJet);
@@ -610,11 +620,13 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
     if( TMath::Sign(1, ssbLund) == isB ){ 
         hmass_ssB_osRT->Fill(svtMass->at(ssbSVT), evtWeight);
         (tWriter->osJetTag) = 1;
+        counter[1]+=evtWeight;
     }
 
     if( TMath::Sign(1, ssbLund) == -1*isB ){
         hmass_ssB_osWT->Fill(svtMass->at(ssbSVT), evtWeight);
         (tWriter->osJetTag) = 0;
+        counter[2]+=evtWeight;
     }
 
     //------------------------------------------------TRACKS------------------------------------------------
@@ -633,6 +645,7 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
     for (int iTrk = 0; iTrk<nTracks; ++iTrk){
 
         if( deltaR(jetEta->at(iJet), jetPhi->at(iJet), trkEta->at(iTrk), trkPhi->at(iTrk)) > 0.5 ) continue;
+        if( fabs(dZ(iTrk, ssbPVT)) > 0.1 ) continue;
         if(std::find(jet_tks.begin(), jet_tks.end(), iTrk) != jet_tks.end()) continue;
 
         (tWriter->trkPt)->push_back(trkPt->at(iTrk));
@@ -647,6 +660,12 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
 
     (tWriter->evtNumber) = event_tot;
     tWriter->fill();
+
+    float eff   = static_cast<float>( counter[1]+counter[2] ) / static_cast<float>( counter[0] );
+    float w     = static_cast<float>( counter[2] ) / static_cast<float>( counter[1]+counter[2] );
+    float power = eff*pow(1-2*w, 2);
+
+    cout<<counter[0]<<" - "<<counter[1]<<" - "<<counter[2]<<"     "<<std::setprecision(3)<<eff*100<<"     "<<w*100<<"     "<<power*100<<endl;
 
     return true;
 
