@@ -18,7 +18,7 @@ int evtNumber //event number
 [*] float evtWeight //event weight (1 or 2 to adress mc bias)
 
 int hltJpsiMu //bool if fired hltJpsiMu [should be always 0 you should not use this]
-int hltJpsiTrkTrk //bool if fired hltJpsiTrkTrk [should be always 1 you should not use this]
+int hltJpsiTrkTrk //bool if fired hltJpsiTrkTrk [you should not use this]
 int hltJpsiTrk //bool if fired hltJpsiTrk [you should not use this]
 
 float jetPt  //[you should not use this for now]
