@@ -1,0 +1,48 @@
+Code used to produce these ntuples
+https://github.com/abragagn/BTag-OsJet/tree/skimHevjin
+
+NTUPLE CONTENT
+[*]  stuff you really need
+
+float ssbMass //mass of the BsJpsiPhi [you should not use this]
+int ssbSVT //svt index  [you should not use this]
+int ssbPVT //svt pv  [you should not use this]
+[*] int ssbLund //BsJpsiPhi Lund code THIS IS YOUR LABEL (531 vs -531)
+int ssbIsTight //if bsjpsi passed tigh selection [you should not use this]
+
+float ssbPVTx //x coordinate of the PV you may want to use it, idk
+float ssbPVTy //y coordinate of the PV you may want to use it, idk
+float ssbPVTz //z coordinate of the PV you may want to use it, idk
+
+int evtNumber //event number
+[*] float evtWeight //event weight (1 or 2 to adress mc bias)
+
+int hltJpsiMu //bool if fired hltJpsiMu [should be always 0 you should not use this]
+int hltJpsiTrkTrk //bool if fired hltJpsiTrkTrk [should be always 1 you should not use this]
+int hltJpsiTrk //bool if fired hltJpsiTrk [you should not use this]
+
+float jetPt  //[you should not use this for now]
+float jetEta //[you should not use this for now]
+float jetPhi //[you should not use this for now]
+float jetCharge //[you should not use this for now]
+float jetDeepCSV //[you should not use this for now]
+float jetDrB //[you should not use this for now]
+float jetDzB //[you should not use this for now]
+
+int jetNDau //[you should not use this for now]
+float jetNHF //[you should not use this for now]
+float jetNEF //[you should not use this for now]
+float jetCHF //[you should not use this for now]
+float jetCEF //[you should not use this for now]
+float jetNCH //[you should not use this for now]
+
+int jetHasAncestor  //index of ancestor b [you should not use this for now]
+
+[*] vector <float> trkPt
+[*] vector <float> trkEta
+[*] vector <float> trkPhi
+[*] vector <int> trkCharge
+[*] vector <int> trkIsHighPurity //if passed high purity selection, you should always ask that this is 1
+[*] vector <float> trkDxy
+[*] vector <float> trkDz
+[*] vector <int> trkIsInJet //if track is in the selected jet, for now aske that this is 1
