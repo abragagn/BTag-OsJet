@@ -25,7 +25,7 @@
 using namespace std;
 
 /*
-pdTreeAnalyze /lustre/cmswork/abragagn/ntuList/MC2017Lists/BsToJpsiPhi_2017_DCAP.list hist.root -v outputFile ntu.root -v histoMode RECREATE -v use_gen t-n 10000
+pdTreeAnalyze /lustre/cmswork/abragagn/ntuList/MC2017Lists/BsToJpsiPhi_2017_DCAP.list histHevjin.root -v outputFile ntuHevjin.root -v histoMode RECREATE -v use_gen t -n 10000
 */
 
 PDAnalyzer::PDAnalyzer() {
