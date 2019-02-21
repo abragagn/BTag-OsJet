@@ -25,7 +25,7 @@
 using namespace std;
 
 /*
-pdTreeAnalyze /lustre/cmswork/abragagn/ntuList/MC2017Lists/BsToJpsiPhi_2017_DCAP.list hist.root -v outputFile ntu.root -v histoMode RECREATE -v use_gen t-n 10000
+pdTreeAnalyze /lustre/cmswork/abragagn/ntuList/MC2017Lists/BsToJpsiPhi_2017_DCAP.list hist.root -v outputFile ntu.root -v histoMode RECREATE -v use_gen t -n 10000
 */
 
 PDAnalyzer::PDAnalyzer() {
@@ -217,7 +217,6 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
 
     int ssbSVT = GetCandidate(process);
     if(ssbSVT<0) return false;
-    counter[3]++;
 
     bool isTight = false;
     int ssbSVTtight = GetTightCandidate(process);
@@ -281,7 +280,6 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
     setSsForTag(ssbSVT, ssbPVT);
 
     if(getOsMuon()>=0) return false; 
-    counter[6]++;
     if(nElectrons>0) return false; 
 
     //FILLING SS
@@ -493,10 +491,10 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
         if(abs(jetEta->at(iJet))>2.5) continue;
         if(jetPt->at(iJet)<minPtJet) continue;
 
-        float bTag = GetJetProbb(iJet);
-        float cutbTag = CutDeepCSV;
-//        float bTag = jetCSV->at(iJet);
-//        float cutbTag = CutCSV;
+//        float bTag = GetJetProbb(iJet);
+//        float cutbTag = CutDeepCSV;
+        float bTag = jetCSV->at(iJet);
+        float cutbTag = CutCSV;
         if(bTag < cutbTag) continue;
 
         float jetDrB = deltaR(jetEta->at( iJet ), jetPhi->at( iJet ), tB.Eta(), tB.Phi());
