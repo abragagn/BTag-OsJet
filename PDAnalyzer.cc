@@ -235,8 +235,8 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
     if(ssbPVT < 0) return false;
     setSsForTag(ssbSVT, ssbPVT);
 
-    if(getOsMuon()>=0) return false; 
-    if(nElectrons>0) return false; 
+    if(getOsMuon()>=0) return false;
+    if(nElectrons>0) return false;
 
     //FILLING SS
     (tWriter->ssbMass) = svtMass->at(ssbSVT);
