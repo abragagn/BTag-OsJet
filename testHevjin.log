@@ -1,0 +1,502 @@
+Sender: LSF System <lsfadmin@up-00-02>
+Subject: Job 52298635: <#!/bin/sh;#BSUB -o testHevjin.log;eval `scram runtime -sh`;pdTreeAnalyze /lustre/cmswork/abragagn/ntuList/MC2017Lists/BsToJpsiPhi_2017_DCAP.list histHevjin.root -v outputFile ntuHevjin.root -v histoMode RECREATE -v use_gen t -v useHLT f -n 10000000> Done
+
+Job <#!/bin/sh;#BSUB -o testHevjin.log;eval `scram runtime -sh`;pdTreeAnalyze /lustre/cmswork/abragagn/ntuList/MC2017Lists/BsToJpsiPhi_2017_DCAP.list histHevjin.root -v outputFile ntuHevjin.root -v histoMode RECREATE -v use_gen t -v useHLT f -n 10000000> was submitted from host <t2-ui-12.pd.infn.it> by user <abragagn> in cluster <t2farm>.
+Job was executed on host(s) <up-00-02>, in queue <local-cms-short>, as user <abragagn> in cluster <t2farm>.
+</homeui/abragagn> was used as the home directory.
+</lustre/cmswork/abragagn/BPH/BTag/OSJet/src/PDAnalysis/Ntu/bin> was used as the working directory.
+Started at Wed Feb 20 18:41:56 2019
+Results reported at Thu Feb 21 02:22:18 2019
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/sh
+#BSUB -o testHevjin.log
+eval `scram runtime -sh`
+pdTreeAnalyze /lustre/cmswork/abragagn/ntuList/MC2017Lists/BsToJpsiPhi_2017_DCAP.list histHevjin.root -v outputFile ntuHevjin.root -v histoMode RECREATE -v use_gen t -v useHLT f -n 10000000
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time   :  17281.18 sec.
+    Max Memory :       551 MB
+    Max Swap   :      1169 MB
+
+    Max Processes  :         5
+    Max Threads    :         6
+
+The output (if any) follows:
+
+/bin/mkdir: cannot create directory `/lustre/cmswork/abragagn/BPH/BTag/OSJet/src/PDAnalysis/Ntu/bin/lsf_working_dir_#!/bin/sh;#BSUB -o testHevjin.log;eval `scram runtime -sh`;pdTreeAnalyze /lustre/cmswork/abragagn/ntuList/MC2017Lists/BsToJpsiPhi_2017_DCAP.list histHevjin.root -v outputFile ntuHevjin.root -v histoMode RECREATE -v use_gen t -v useHLT f -n 10000000_52298635': No such file or directory
+/sw/lsf/conf/lsbatch/t2farm/configdir/scripts/create_jobdir_local_queue.sh: line 50: cd: /lustre/cmswork/abragagn/BPH/BTag/OSJet/src/PDAnalysis/Ntu/bin/lsf_working_dir_#!/bin/sh;#BSUB -o testHevjin.log;eval `scram runtime -sh`;pdTreeAnalyze /lustre/cmswork/abragagn/ntuList/MC2017Lists/BsToJpsiPhi_2017_DCAP.list histHevjin.root -v outputFile ntuHevjin.root -v histoMode RECREATE -v use_gen t -v useHLT f -n 10000000_52298635: No such file or directory
+NtuFlexibleAnalyzer::run
+new PDAnalyzer
+PDNtupleBranch<T>::initTree()
+Using TensorFlow backend.
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_879.root
+ == at event 0 0
+ == at event 10 10
+ == at event 20 20
+ == at event 30 30
+ == at event 40 40
+ == at event 50 50
+ == at event 60 60
+ == at event 70 70
+ == at event 80 80
+ == at event 90 90
+ == at event 100 100
+ == at event 200 200
+ == at event 300 300
+ == at event 400 400
+ == at event 500 500
+ == at event 600 600
+ == at event 700 700
+ == at event 800 800
+ == at event 900 900
+ == at event 1000 1000
+ == at event 2000 2000
+ == at event 3000 3000
+ == at event 4000 4000
+ == at event 5000 5000
+ == at event 6000 6000
+ == at event 7000 7000
+ == at event 8000 8000
+ == at event 9000 9000
+ == at event 10000 10000
+ == at event 20000 20000
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_955.root
+ == at event 3949 30000
+ == at event 13949 40000
+ == at event 23949 50000
+ == at event 33949 60000
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_798.root
+ == at event 7322 70000
+ == at event 17322 80000
+ == at event 27322 90000
+ == at event 37322 100000
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_810.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_812.root
+ == at event 1162 200000
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_541.root
+ == at event 22526 300000
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_842.root
+ == at event 33774 400000
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_25.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_36.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_53.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_45.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_196.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_312.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_619.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_46.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_47.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_313.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_39.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_84.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_973.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_994.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_73.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_172.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_206.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_32.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_265.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_26.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_114.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_66.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_351.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_309.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_210.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_327.root
+ == at event 3852 500000
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_377.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_109.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_366.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_277.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_244.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_941.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_44.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_261.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_337.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_480.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_538.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_121.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_263.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_960.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_35.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_38.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_362.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_40.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_991.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_983.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_713.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_925.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_965.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_996.root
+ == at event 1329 600000
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_946.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_354.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_780.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_49.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_207.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_169.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_922.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_42.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_54.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_574.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_247.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_765.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_501.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_684.root
+ == at event 2133 700000
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_1.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_48.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_71.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_610.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_592.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_920.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_117.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_283.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_917.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_963.root
+ == at event 4969 800000
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_374.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_203.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_444.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_881.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_927.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_913.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_14.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_608.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_888.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_625.root
+ == at event 12698 900000
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_317.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_924.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_552.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_736.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_495.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_959.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_515.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_264.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_266.root
+ == at event 10033 1000000
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_915.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_718.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_957.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_411.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_824.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_764.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_906.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_944.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_916.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_144.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_988.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_998.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_571.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_952.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_660.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_821.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_303.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_760.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_792.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_20.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_936.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_985.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_616.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_939.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_335.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_556.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_789.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_10.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_849.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_33.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_951.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_156.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_76.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_386.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_908.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_467.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_23.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_926.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_151.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_966.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_923.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_276.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_120.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_79.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_75.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_918.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_539.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_212.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_126.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_453.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_914.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_980.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_521.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_990.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_446.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_41.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_167.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_932.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_954.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_937.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_238.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_51.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_297.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_289.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_535.root
+ == at event 4546 2000000
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_308.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_919.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_194.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_766.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_338.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_360.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_711.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_7.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_138.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_950.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_654.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_178.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_864.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_211.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_634.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_6.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_59.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_229.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_140.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_572.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_232.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_122.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_198.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_533.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_103.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_267.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_22.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_700.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_105.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_483.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_216.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_93.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_260.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_99.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_820.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_124.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_262.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_69.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_200.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_715.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_130.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_189.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_231.root
+ == at event 1685 3000000
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_350.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_586.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_241.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_846.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_50.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_383.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_102.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_987.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_233.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_609.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_400.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_52.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_935.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_183.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_62.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_670.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_188.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_668.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_12.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_28.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_347.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_27.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_273.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_459.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_282.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_874.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_191.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_43.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_569.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_893.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_505.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_65.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_512.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_356.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_694.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_190.root
+ == at event 18272 4000000
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_137.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_239.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_605.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_325.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_379.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_193.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_201.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_78.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_401.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_86.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_591.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_345.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_549.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_158.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_727.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_269.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_934.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_790.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_929.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_811.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_967.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_11.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_230.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_173.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_828.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_408.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_397.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_971.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_912.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_257.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_395.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_476.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_986.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_982.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_363.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_945.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_720.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_544.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_690.root
+ == at event 5503 5000000
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_822.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_989.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_993.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_89.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_984.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_67.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_81.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_604.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_976.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_587.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_315.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_761.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_199.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_177.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_118.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_943.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_139.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_142.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_685.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_136.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_97.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_252.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_398.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_425.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_866.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_968.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_602.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_217.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_434.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_8.root
+ == at event 21828 6000000
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_382.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_19.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_2.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_161.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_504.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_334.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_254.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_977.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_514.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_632.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_956.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_869.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_387.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_763.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_801.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_219.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_390.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_466.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_388.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_280.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_394.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_392.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_454.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_13.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_948.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_155.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_784.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_455.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_150.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_536.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_113.root
+ == at event 13877 7000000
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_972.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_72.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_221.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_367.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_214.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_975.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_98.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_389.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_287.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_510.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_368.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_250.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_981.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_479.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_111.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_757.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_104.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_16.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_921.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_942.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_187.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_546.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_285.root
+ == at event 13885 8000000
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_176.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_340.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_371.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_259.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_659.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_969.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_278.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_384.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_135.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_132.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_862.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_344.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_215.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_163.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_272.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_762.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_286.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_638.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_868.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_153.root
+ == at event 34925 9000000
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_961.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_585.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_18.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_320.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_245.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_800.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_867.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_749.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_147.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_106.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_300.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_255.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_341.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_523.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_324.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_582.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_647.root
+open file dcap://t2-srm-02.lnl.infn.it////pnfs/lnl.infn.it/data/cms/store/user/abragagn/BsToJpsiPhi_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BsToJpsiPhi_BMuonFilter_2017_MINIAODSIM/181129_133312/0000/ntu_165.root
+
+10000000 events read, 10000000 analyzed, 2839997 accepted
