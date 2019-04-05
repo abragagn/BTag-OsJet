@@ -4,45 +4,48 @@ https://github.com/abragagn/BTag-OsJet/tree/skimHevjin
 NTUPLE CONTENT
 [*]  stuff you really need
 
-float ssbMass //mass of the BsJpsiPhi [you should not use this]
-int ssbSVT //svt index  [you should not use this]
-int ssbPVT //svt pv  [you should not use this]
+float ssbMass   //mass of the BsJpsiPhi [you should not use this]
+int ssbSVT      //svt index  [you should not use this]
+int ssbPVT      //pv index  [you should not use this]
 [*] int ssbLund //BsJpsiPhi Lund code THIS IS YOUR LABEL (531 vs -531)
-int ssbIsTight //if bsjpsi passed tigh selection [you should not use this]
+int ssbIsTight  //if bsjpsi passed tigh selection [you should not use this]
 
-float ssbPVTx //x coordinate of the PV you may want to use it, idk
-float ssbPVTy //y coordinate of the PV you may want to use it, idk
-float ssbPVTz //z coordinate of the PV you may want to use it, idk
+float ssbPVTx   //x coordinate of the PV you may want to use it
+float ssbPVTy   //y coordinate of the PV you may want to use it
+float ssbPVTz   //z coordinate of the PV you may want to use it
 
-int evtNumber //event number
-[*] float evtWeight //event weight (1 or 2 to adress mc bias)
+int evtNumber         //event number
+[*] float evtWeight   //event weight (1 or 2 event-wise weight to adress mc bias)
 
-int hltJpsiMu //bool if fired hltJpsiMu [should be always 0 you should not use this]
-int hltJpsiTrkTrk //bool if fired hltJpsiTrkTrk [you should not use this]
-int hltJpsiTrk //bool if fired hltJpsiTrk [you should not use this]
+int hltJpsiMu         //bool if fired hltJpsiMu [should be always 0 you should not use this]
+int hltJpsiTrkTrk     //bool if fired hltJpsiTrkTrk [you should not use this]
+int hltJpsiTrk        //bool if fired hltJpsiTrk [you should not use this]
 
-float jetPt  //[you should not use this for now]
-float jetEta //[you should not use this for now]
-float jetPhi //[you should not use this for now]
-float jetCharge //[you should not use this for now]
-float jetDeepCSV //[you should not use this for now]
-float jetDrB //[you should not use this for now]
-float jetDzB //[you should not use this for now]
+float jetPt       //[you should not use this for now]
+float jetEta      //[you should not use this for now]
+float jetPhi      //[you should not use this for now]
+float jetCharge   //pt-weighted jet charge calculated from tracks compatible with PVT [you should not use this for now]
+float jetDeepCSV  //probb+probbb from DeepCSV b-taggerv[you should not use this for now]
+float jetDrB      //dr=sqrt(dEta^2+dPhi^2) wrt reco BsJpsiPhi [you should not use this for now]
+float jetDzB      //dz=average(dz_i) (i = jet tracks indices) wrt PVT [you should not use this for now]
 
-int jetNDau //[you should not use this for now]
-float jetNHF //[you should not use this for now]
-float jetNEF //[you should not use this for now]
-float jetCHF //[you should not use this for now]
-float jetCEF //[you should not use this for now]
-float jetNCH //[you should not use this for now]
+int jetNDau       //number of particles in the jet [you should not use this for now]
+float jetNHF      //neutralHadronEnergyFraction() [you should not use this for now]
+float jetNEF      //neutralEmEnergyFraction() [you should not use this for now]
+float jetCHF      //chargedHadronEnergyFraction() [you should not use this for now]
+float jetCEF      //chargedEmEnergyFraction() [you should not use this for now]
+float jetNCH      //chargedMultiplicity() [you should not use this for now]
 
-int jetHasAncestor  //index of ancestor b [you should not use this for now]
+int jetHasAncestor  //index of ancestor b, if -1 no collinear b hadron was found [you should not use this for now]
+
+//variables for all the tracks contained in the jet + all the tracks with dr<0.5 wrt jet direction and dz wrtPV<0.1
+//trkIsInJet bool discriminate between the two
 
 [*] vector <float> trkPt
 [*] vector <float> trkEta
 [*] vector <float> trkPhi
 [*] vector <int> trkCharge
-[*] vector <int> trkIsHighPurity //if passed high purity selection, you should always ask that this is 1
-[*] vector <float> trkDxy
-[*] vector <float> trkDz
-[*] vector <int> trkIsInJet //if track is in the selected jet, for now aske that this is 1
+[*] vector <int> trkIsHighPurity //if passed high purity selection, you should always ask this ==1
+[*] vector <float> trkDxy // signed impact parameter in the transverse plane wrt PVT
+[*] vector <float> trkDz // impact parameter in the z direction wrt PVT
+[*] vector <int> trkIsInJet //if track is in the selected jet, for now ask that this is 1
