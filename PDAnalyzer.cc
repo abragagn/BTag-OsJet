@@ -46,8 +46,8 @@ PDAnalyzer::PDAnalyzer() {
     setUserParameter( "QCut", "0.0" );
     setUserParameter( "minPtJet", "10" );
     setUserParameter( "jetDrCut", "0.5" );
-    setUserParameter( "jetDzCut", "0.2" );
-    setUserParameter( "jetChargeDzCut", "0.2" );
+    setUserParameter( "jetDzCut", "0.5" );
+    setUserParameter( "jetChargeDzCut", "0.5" );
 
     setUserParameter( "ptCut", "40.0" ); //needed for paolo's code for unknow reasons
 
@@ -163,11 +163,11 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
     if(hlt(PDEnumString::HLT_DoubleMu4_JpsiTrkTrk_Displaced_v)) jpsitktk =  true;
     if(hlt(PDEnumString::HLT_DoubleMu4_JpsiTrk_Displaced_v)) jpsitk = true;
 
-    if( jpsimu ) return false;
-    SetJpsiTrkTrkCut();
-
     if(useHLT && process=="BsJPsiPhi" && !jpsitktk) return false;
     if(useHLT && process=="BuJPsiK" && !jpsitk) return false;
+    if( jpsimu ) return false;
+
+    SetJpsiTrkTrkCut();
 
 //------------------------------------------------SEARCH FOR SS---------------------------------------
 
@@ -220,7 +220,6 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
             if(abs(genId->at(it)) == abs(ssbLund)) evtWeight = 2;
         }
 
-
     }else{
         if(process=="BsJPsiPhi") ssbLund = ((double)rand() / (RAND_MAX)) < 0.5 ? +531 : -531; //this should not be used
         if(process=="BuJPsiK"){
@@ -241,20 +240,15 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
     //FILLING SS
     (tWriter->ssbMass) = svtMass->at(ssbSVT);
     (tWriter->ssbIsTight) = isTight;
-
-    (tWriter->ssbSVT) = ssbSVT;
-    (tWriter->ssbPVT) = ssbPVT;
     (tWriter->ssbPVTx) = pvtX->at(ssbPVT);
     (tWriter->ssbPVTy) = pvtY->at(ssbPVT);
     (tWriter->ssbPVTz) = pvtZ->at(ssbPVT);
-    
     (tWriter->ssbLund) = ssbLund;
-
     (tWriter->hltJpsiMu) = jpsimu;
     (tWriter->hltJpsiTrkTrk) = jpsitktk;
     (tWriter->hltJpsiTrk) = jpsitk;
-    
     (tWriter->evtWeight) = evtWeight;
+    (tWriter->evtNumber) = event_tot;
 
 //-----------------------------------------JET-----------------------------------------
 
@@ -264,7 +258,6 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
     //SELECTION
     for (int iJet = 0; iJet<nJets; ++iJet){
 
-        vector <int> jet_pfcs = pfCandFromJet( iJet );
         vector <int> jet_tks = tracksFromJet( iJet );
 
         //SELECTION
@@ -275,29 +268,25 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
         float bTag = GetJetProbb(iJet);
         float cutbTag = CutDeepCSV;
         if(bTag < cutbTag) continue;
-
-        float jetDrB = deltaR(jetEta->at( iJet ), jetPhi->at( iJet ), tB.Eta(), tB.Phi());
-        if( jetDrB < jetDrCut ) continue;
+        if( deltaR(jetEta->at(iJet),jetPhi->at(iJet),tB.Eta(),tB.Phi()) < jetDrCut ) continue;
 
         bool skip = false; 
         for(auto it:jet_tks){
-            if(std::find(tkSsB.begin(), tkSsB.end(), it) != tkSsB.end()){
+            if(std::find(tkSsB.begin(),tkSsB.end(),it) != tkSsB.end()){
                 skip = true;
                 break;
             }
         }
+        if(skip) continue; // skip if contains signal tracks
 
-        if(skip) continue;
-
-        int nTrkNear = 0;
+        int nTrkNearPV = 0;
         for(auto it:jet_tks){
             if(fabs(dZ(it, ssbPVT))>=jetDzCut) continue;
             if( !(( trkQuality->at( it ) >> 2 ) & 1) ) continue;
-            if( fabs(trkEta->at(it))>2.5 ) continue;
-            if( trkPt->at(it)<0.7 ) continue;
-            nTrkNear++;
+            nTrkNearPV++;
         }
-        if(nTrkNear < 2) continue;
+
+        if(nTrkNearPV < 2) continue;
 
         if(bTag>bestJetTag){
             bestJetTag = bTag;
@@ -314,15 +303,10 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
 
     vector<int> selectedJetTracks;
     for(auto it:jet_tks){
-        if(fabs(dZ(it, ssbPVT))>=jetChargeDzCut) continue;
+        if(fabs(dZ(it, ssbPVT))>=jetDzCut) continue;
         if( !(( trkQuality->at( it ) >> 2 ) & 1) ) continue;
-        if( fabs(trkEta->at(it))>2.5 ) continue;
-        if( trkPt->at(it)<0.7 ) continue;
         selectedJetTracks.push_back(it);
     }
-
-    if(selectedJetTracks.size()==0) return true;
-
 
     //GENINFO
     int jetAncestor = GetJetAncestor( iJet, &ListB );
@@ -333,8 +317,7 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
     for(auto it:selectedJetTracks)
         jetDzB += fabs(dZ(it, ssbPVT));
 
-    jetDzB = jetDzB/=selectedJetTracks.size();
-    float jetDrB = deltaR(jetEta->at( iJet ), jetPhi->at( iJet ), tB.Eta(), tB.Phi());
+    jetDzB/=selectedJetTracks.size();
 
     //Jet Charge
     float jet_charge = GetListCharge(&selectedJetTracks, kappa);
@@ -344,14 +327,14 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
     (tWriter->jetPhi) = jetPhi->at(iJet);
     (tWriter->jetCharge) = jet_charge;
     (tWriter->jetDeepCSV) = GetJetProbb(iJet);
-    (tWriter->jetDrB) = jetDrB;
+    (tWriter->jetDrB) = deltaR(jetEta->at(iJet),jetPhi->at(iJet),tB.Eta(),tB.Phi());
     (tWriter->jetDzB) = jetDzB;
-    (tWriter->jetNDau) = jetNDau->at(iJet);
-    (tWriter->jetNHF) = jetNHF->at(iJet);
-    (tWriter->jetNEF) = jetNEF->at(iJet);
-    (tWriter->jetCHF) = jetCHF->at(iJet);
-    (tWriter->jetCEF) = jetCEF->at(iJet);
-    (tWriter->jetNCH) = jetNCH->at(iJet);
+    // (tWriter->jetNDau) = jetNDau->at(iJet);
+    // (tWriter->jetNHF) = jetNHF->at(iJet);
+    // (tWriter->jetNEF) = jetNEF->at(iJet);
+    // (tWriter->jetCHF) = jetCHF->at(iJet);
+    // (tWriter->jetCEF) = jetCEF->at(iJet);
+    // (tWriter->jetNCH) = jetNCH->at(iJet);
 
     //------------------------------------------------TAG------------------------------------------------
 
@@ -360,33 +343,46 @@ bool PDAnalyzer::analyze( int entry, int event_file, int event_tot ) {
     //------------------------------------------------TRACKS------------------------------------------------
 
     for(auto it:jet_tks){
+        if( !(( trkQuality->at( it ) >> 2 ) & 1) ) continue;
+        float dxy = PDAnalyzerUtil::dXY(it,pvtX->at(ssbPVT),pvtY->at(ssbPVT));
+        float dz = PDAnalyzerUtil::dZ(it,pvtX->at(ssbPVT),pvtY->at(ssbPVT),pvtZ->at(ssbPVT));
         (tWriter->trkPt)->push_back(trkPt->at(it));
         (tWriter->trkEta)->push_back(trkEta->at(it));
         (tWriter->trkPhi)->push_back(trkPhi->at(it));
         (tWriter->trkCharge)->push_back(trkCharge->at(it));
-        (tWriter->trkIsHighPurity)->push_back( ( trkQuality->at( it ) >> 2 ) & 1 );
-        (tWriter->trkDxy)->push_back( dXYjet(it, ssbPVT, iJet) );
-        (tWriter->trkDz)->push_back(dZ(it, ssbPVT));        
+        (tWriter->trkDxySigned)->push_back( abs(dxy)*dSign(it,iJet,pvtX->at(ssbPVT),pvtY->at(ssbPVT)) );
+        (tWriter->trkDxy)->push_back( dxy );
+        (tWriter->trkDz)->push_back( dz );
+        (tWriter->trkDxyz)->push_back( sqrt(pow(dxy,2)+pow(dz,2)) );
+        (tWriter->trkExy)->push_back( trkExy->at(it) );
+        (tWriter->trkEz)->push_back( trkEz->at(it) );
+        (tWriter->trkDrJet)->push_back(deltaR(jetEta->at(iJet),jetPhi->at(iJet),trkEta->at(it),trkPhi->at(it)));        
         (tWriter->trkIsInJet)->push_back( 1 );
     }
 
-    for (int iTrk = 0; iTrk<nTracks; ++iTrk){
+    for (int it = 0; it<nTracks; ++it){
 
-        if( deltaR(jetEta->at(iJet), jetPhi->at(iJet), trkEta->at(iTrk), trkPhi->at(iTrk)) > 0.5 ) continue;
-        if( fabs(dZ(iTrk, ssbPVT)) > 0.1 ) continue;
-        if(std::find(jet_tks.begin(), jet_tks.end(), iTrk) != jet_tks.end()) continue;
+        if( deltaR(jetEta->at(iJet), jetPhi->at(iJet), trkEta->at(it), trkPhi->at(it)) > 0.5 ) continue;
+        if( fabs(dZ(it, ssbPVT)) > 0.5 ) continue;
+        if(std::find(jet_tks.begin(), jet_tks.end(), it) != jet_tks.end()) continue;
+        if( !(( trkQuality->at( it ) >> 2 ) & 1) ) continue;
 
-        (tWriter->trkPt)->push_back(trkPt->at(iTrk));
-        (tWriter->trkEta)->push_back(trkEta->at(iTrk));
-        (tWriter->trkPhi)->push_back(trkPhi->at(iTrk));
-        (tWriter->trkCharge)->push_back(trkCharge->at(iTrk));
-        (tWriter->trkIsHighPurity)->push_back( ( trkQuality->at( iTrk ) >> 2 ) & 1 );
-        (tWriter->trkDxy)->push_back( dXYjet(iTrk, ssbPVT, iJet) );
-        (tWriter->trkDz)->push_back(dZ(iTrk, ssbPVT));
-        (tWriter->trkIsInJet)->push_back( 0 );        
+        float dxy = PDAnalyzerUtil::dXY(it,pvtX->at(ssbPVT),pvtY->at(ssbPVT));
+        float dz = PDAnalyzerUtil::dZ(it,pvtX->at(ssbPVT),pvtY->at(ssbPVT),pvtZ->at(ssbPVT));
+        (tWriter->trkPt)->push_back(trkPt->at(it));
+        (tWriter->trkEta)->push_back(trkEta->at(it));
+        (tWriter->trkPhi)->push_back(trkPhi->at(it));
+        (tWriter->trkCharge)->push_back(trkCharge->at(it));
+        (tWriter->trkDxySigned)->push_back( abs(dxy)*dSign(it,iJet,pvtX->at(ssbPVT),pvtY->at(ssbPVT)) );
+        (tWriter->trkDxy)->push_back( dxy );
+        (tWriter->trkDz)->push_back( dz );
+        (tWriter->trkDxyz)->push_back( sqrt(pow(dxy,2)+pow(dz,2)) );
+        (tWriter->trkExy)->push_back( trkExy->at(it) );
+        (tWriter->trkEz)->push_back( trkEz->at(it) );
+        (tWriter->trkDrJet)->push_back(deltaR(jetEta->at(iJet),jetPhi->at(iJet),trkEta->at(it),trkPhi->at(it)));        
+        (tWriter->trkIsInJet)->push_back( 0 );
     }
 
-    (tWriter->evtNumber) = event_tot;
     tWriter->fill();
 
     return true;
